@@ -57,16 +57,16 @@ export default function ShippingScreen() {
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">Shipping Address</h1>
+        <h1 className="mb-4 text-xl">Адреса доставки</h1>
 
         <div className="mb-4">
-          <label htmlFor="fullName">Full Name</label>
+          <label htmlFor="fullName">ПІБ</label>
           <input
             className="w-full"
             id="fullName"
             autoFocus
             {...register('fullName', {
-              required: 'Please enter full name',
+              required: 'Введіть ПІБ',
             })}
           />
           {errors.fullName && (
@@ -75,13 +75,13 @@ export default function ShippingScreen() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">Адреса</label>
           <input
             className="w-full"
             id="address"
             {...register('address', {
-              required: 'Please enter address',
-              minLength: { value: 3, message: 'Address is more than 2 chars' },
+              required: 'Введіть адресу',
+              minLength: { value: 3, message: 'Адреса має містити більше 2 символів' },
             })}
           />
           {errors.address && (
@@ -89,12 +89,12 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">Місто</label>
           <input
             className="w-full"
             id="city"
             {...register('city', {
-              required: 'Please enter city',
+              required: 'Введіть місто',
             })}
           />
           {errors.city && (
@@ -102,12 +102,12 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="postalCode">Postal Code</label>
+          <label htmlFor="postalCode">Індекс</label>
           <input
             className="w-full"
             id="postalCode"
             {...register('postalCode', {
-              required: 'Please enter postal code',
+              required: 'Введіть індекс',
             })}
           />
           {errors.postalCode && (
@@ -115,12 +115,12 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">Країна</label>
           <input
             className="w-full"
             id="country"
             {...register('country', {
-              required: 'Please enter country',
+              required: 'Введіть країну',
             })}
           />
           {errors.country && (
@@ -128,7 +128,7 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4 flex justify-between">
-          <button className="primary-button">Next</button>
+          <button className="primary-button">Далі</button>
         </div>
       </form>
     </Layout>

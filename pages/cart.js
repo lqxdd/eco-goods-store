@@ -25,11 +25,11 @@ function CartScreen() {
 
   return (
     <Layout title="Shopping Cart">
-      <h1 className="mb-4 text-xl">Shopping Cart</h1>
+      <h1 className="mb-4 text-xl">Кошик</h1>
 
       {cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
+          Cart is empty. <Link href="/">До покупок</Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
@@ -37,10 +37,10 @@ function CartScreen() {
             <table className="min-w-full ">
               <thead className="border-b">
                 <tr>
-                  <th className="p-5 text-left">Item</th>
-                  <th className="p-5 text-right">Quantity</th>
-                  <th className="p-5 text-right">Price</th>
-                  <th className="p-5">Action</th>
+                  <th className="p-5 text-left">Товар</th>
+                  <th className="p-5 text-right">Кількість</th>
+                  <th className="p-5 text-right">Ціна</th>
+                  <th className="p-5">Дія</th>
                 </tr>
               </thead>
               <tbody>
@@ -74,7 +74,7 @@ function CartScreen() {
                         ))}
                       </select>
                     </td>
-                    <td className="p-5 text-right">${item.price}</td>
+                    <td className="p-5 text-right">{item.price} грн</td>
                     <td className="p-5 text-center">
                       <button onClick={() => removeItemHandler(item)}>
                         <XCircleIcon className="h-5 w-5"></XCircleIcon>
@@ -89,8 +89,8 @@ function CartScreen() {
             <ul>
               <li>
                 <div className="pb-3 text-xl">
-                  Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}) : $
-                  {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
+                  Сума ({cartItems.reduce((a, c) => a + c.quantity, 0)}) : 
+                  {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)} грн
                 </div>
               </li>
               <li>
@@ -98,7 +98,7 @@ function CartScreen() {
                   onClick={() => router.push('login?redirect=/shipping')}
                   className="primary-button w-full"
                 >
-                  Check Out
+                  Підтвердження
                 </button>
               </li>
             </ul>
