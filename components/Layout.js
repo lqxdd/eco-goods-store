@@ -18,12 +18,12 @@ export default function Layout({ title, children }) {
 
 
   const { state, dispatch } = useContext(Store);
-  const { cart } = state;
+  const { cart: box } = state;
 
-  const [cartItemsCount, setCartItemsCount] = useState(0);
+  const [boxItemsCount, setboxItemsCount] = useState(0);
   useEffect(() => {
-    setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
-  }, [cart.cartItems]);
+    setboxItemsCount(box.cartItems.reduce((a, c) => a + c.quantity, 0));
+  }, [box.cartItems]);
 
   const logoutClickHandler = () => {
     Cookies.remove('cart');
@@ -79,9 +79,9 @@ export default function Layout({ title, children }) {
               <Link href="/cart">
                 <a className="p-2">
                   Кошик
-                  {cartItemsCount > 0 && (
+                  {boxItemsCount > 0 && (
                     <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
-                      {cartItemsCount}
+                      {boxItemsCount}
                     </span>
                   )}
                 </a>

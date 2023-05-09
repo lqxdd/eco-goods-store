@@ -12,13 +12,13 @@ import { Store } from '@/utils/Store';
 
 export default function PlaceOrderScreen() {
   const { state, dispatch } = useContext(Store);
-  const { cart } = state;
-  const { cartItems, shippingAddress, paymentMethod } = cart;
+  const { cart: box } = state;
+  const { cartItems: boxItems, shippingAddress, paymentMethod } = box;
 
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
 
   const itemsPrice = round2(
-    cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
+    boxItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
 
   const shippingPrice = itemsPrice > 1000 ? 0 : 50;
@@ -38,7 +38,7 @@ export default function PlaceOrderScreen() {
     try {
       setLoading(true);
       const { data } = await axios.post('/api/orders', {
-        orderItems: cartItems,
+        orderItems: boxItems,
         shippingAddress,
         paymentMethod,
         itemsPrice,
@@ -51,7 +51,7 @@ export default function PlaceOrderScreen() {
       Cookies.set(
         'cart',
         JSON.stringify({
-          ...cart,
+          ...box,
           cartItems: [],
         })
       );
@@ -66,7 +66,7 @@ export default function PlaceOrderScreen() {
     <Layout title="Place Order">
       <CheckoutWizard activeStep={3} />
       <h1 className="mb-4 text-xl">Зробити замовлення</h1>
-      {cartItems.length === 0 ? (
+      {boxItems.length === 0 ? (
         <div>
           Кошик порожній. <Link href="/">До покупок</Link>
         </div>
@@ -103,7 +103,7 @@ export default function PlaceOrderScreen() {
                   </tr>
                 </thead>
                 <tbody>
-                  {cartItems.map((item) => (
+                  {boxItems.map((item) => (
                     <tr key={item._id} className="border-b">
                       <td>
                         <Link href={`/product/${item.slug}`}>

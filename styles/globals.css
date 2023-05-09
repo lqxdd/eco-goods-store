@@ -30,6 +30,7 @@ a {
   @apply text-blue-600 hover:text-blue-800;
 }
 
+
 .card {
   @apply mb-5  block   rounded-lg border border-gray-200  shadow-md;
 }
