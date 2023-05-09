@@ -28,6 +28,8 @@ const data = {
       numReviews: 8,
       countInStock: 20,
       description: 'Ваш стильний eco-friendly аксесуар',
+      isFeatured: true,
+      banner: '/images/test.jpg',
     },
     {
       name: 'Біорозкладні пакети "Ecomaizing" 35L',
@@ -40,6 +42,8 @@ const data = {
       numReviews: 10,
       countInStock: 20,
       description: 'Продукт з органічної сировини',
+      isFeatured: true,
+      banner: '/images/test.jpg',
     },
     {
       name: 'Свічка з натурального воску',

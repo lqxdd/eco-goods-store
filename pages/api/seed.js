@@ -1,5 +1,5 @@
 import User from '@/models/User';
-import db from '@/utils/dp';
+import db from '@/utils/db';
 import data from '@/utils/data';
 import Product from '@/models/Product';
 
