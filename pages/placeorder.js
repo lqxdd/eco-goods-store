@@ -19,11 +19,11 @@ export default function PlaceOrderScreen() {
 
   const itemsPrice = round2(
     cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
-  ); 
+  );
 
   const shippingPrice = itemsPrice > 1000 ? 0 : 50;
-  const taxPrice = round2(itemsPrice * 0.05);
-  const totalPrice = round2(itemsPrice + shippingPrice + taxPrice);
+  const addPrice = round2(itemsPrice * 0.05);
+  const totalPrice = round2(itemsPrice + shippingPrice + addPrice);
 
   const router = useRouter();
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function PlaceOrderScreen() {
         paymentMethod,
         itemsPrice,
         shippingPrice,
-        taxPrice,
+        addPrice: addPrice,
         totalPrice,
       });
       setLoading(false);
@@ -68,7 +68,7 @@ export default function PlaceOrderScreen() {
       <h1 className="mb-4 text-xl">Зробити замовлення</h1>
       {cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">До покупок</Link>
+          Кошик порожній. <Link href="/">До покупок</Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
@@ -85,7 +85,7 @@ export default function PlaceOrderScreen() {
               </div>
             </div>
             <div className="card  p-5">
-              <h2 className="mb-2 text-lg">Платіж</h2>
+              <h2 className="mb-2 text-lg">Вид доставки</h2>
               <div>{paymentMethod}</div>
               <div>
                 <Link href="/payment">Змінити</Link>
@@ -120,9 +120,9 @@ export default function PlaceOrderScreen() {
                         </Link>
                       </td>
                       <td className=" p-5 text-right">{item.quantity}</td>
-                      <td className="p-5 text-right">${item.price}</td>
+                      <td className="p-5 text-right">{item.price}</td>
                       <td className="p-5 text-right">
-                        ${item.quantity * item.price}
+                        {item.quantity * item.price}
                       </td>
                     </tr>
                   ))}
@@ -146,7 +146,7 @@ export default function PlaceOrderScreen() {
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Додатково</div>
-                    <div>{taxPrice}</div>
+                    <div>{addPrice}</div>
                   </div>
                 </li>
                 <li>
@@ -162,13 +162,14 @@ export default function PlaceOrderScreen() {
                   </div>
                 </li>
                 <li>
-                  <button
-                    disabled={loading}
-                    onClick={placeOrderHandler}
-                    className="primary-button w-full"
+                  <Link
+                    legacyBehavior
+                    href="https://www.portmone.com.ua/r3/perekaz-za-zapitom/6CniB4h"
                   >
-                    {loading ? 'Loading...' : 'Place Order'}
-                  </button>
+                    <a className="primary-button w-full" target="_blank">
+                      Передоплата
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -179,4 +180,4 @@ export default function PlaceOrderScreen() {
   );
 }
 
- PlaceOrderScreen.auth = true;
+PlaceOrderScreen.auth = true;

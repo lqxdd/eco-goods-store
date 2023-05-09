@@ -53,16 +53,16 @@ export default function LoginScreen() {
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">Create Account</h1>
+        <h1 className="mb-4 text-xl">Створити акаунт</h1>
         <div className="mb-4">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Ім'я</label>
           <input
             type="text"
             className="w-full"
             id="name"
             autoFocus
             {...register('name', {
-              required: 'Please enter name',
+              required: 'Введіть ПІБ',
             })}
           />
           {errors.name && (
@@ -71,14 +71,14 @@ export default function LoginScreen() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Пошта</label>
           <input
             type="email"
             {...register('email', {
-              required: 'Please enter email',
+              required: 'Введіть пошту',
               pattern: {
                 value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
-                message: 'Please enter valid email',
+                message: 'Введіть правильну пошту',
               },
             })}
             className="w-full"
@@ -89,12 +89,12 @@ export default function LoginScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Пароль</label>
           <input
             type="password"
             {...register('password', {
-              required: 'Please enter password',
-              minLength: { value: 6, message: 'password is more than 5 chars' },
+              required: 'Введіть пароль',
+              minLength: { value: 6, message: 'Пароль менше 6 символів' },
             })}
             className="w-full"
             id="password"
@@ -105,17 +105,17 @@ export default function LoginScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="confirmPassword">Підтвердіть пароль </label>
           <input
             className="w-full"
             type="password"
             id="confirmPassword"
             {...register('confirmPassword', {
-              required: 'Please enter confirm password',
+              required: 'Введіть пароль повторно',
               validate: (value) => value === getValues('password'),
               minLength: {
                 value: 6,
-                message: 'confirm password is more than 5 chars',
+                message: 'Пароль менше 6 символів',
               },
             })}
           />
@@ -126,17 +126,14 @@ export default function LoginScreen() {
           )}
           {errors.confirmPassword &&
             errors.confirmPassword.type === 'validate' && (
-              <div className="text-red-500 ">Password do not match</div>
+              <div className="text-red-500 ">Паролі не співпадають</div>
             )}
         </div>
 
         <div className="mb-4 ">
-          <button className="primary-button">Register</button>
+          <button className="primary-button">Реєстрація</button>
         </div>
-        <div className="mb-4 ">
-          Don&apos;t have an account? &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
-        </div>
+        
       </form>
     </Layout>
   );

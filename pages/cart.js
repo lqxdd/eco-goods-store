@@ -36,7 +36,7 @@ function CartScreen() {
 
       {cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">До покупок</Link>
+          Кошик порожній. <Link href="/">До покупок</Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">

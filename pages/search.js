@@ -13,16 +13,16 @@ const PAGE_SIZE = 2;
 
 const prices = [
   {
-    name: '$1 to $50',
-    value: '1-50',
+    name: 'до 100 грн',
+    value: '1-100',
   },
   {
-    name: '$51 to $200',
-    value: '51-200',
+    name: '100-500 грн',
+    value: '100-500',
   },
   {
-    name: '$201 to $1000',
-    value: '201-1000',
+    name: '500-1000',
+    value: '500-1000',
   },
 ];
 
@@ -106,13 +106,13 @@ export default function Search(props) {
       <div className="grid md:grid-cols-4 md:gap-5">
         <div>
           <div className="my-3">
-            <h2>Categories</h2>
+            <h2>Категорії</h2>
             <select
               className="w-full"
               value={category}
               onChange={categoryHandler}
             >
-              <option value="all">All</option>
+              <option value="all">Всі</option>
               {categories &&
                 categories.map((category) => (
                   <option key={category} value={category}>
@@ -122,9 +122,9 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <h2>Brands</h2>
+            <h2>Бренд</h2>
             <select className="w-full" value={brand} onChange={brandHandler}>
-              <option value="all">All</option>
+              <option value="all">Всі</option>
               {brands &&
                 brands.map((brand) => (
                   <option key={brand} value={brand}>
@@ -134,9 +134,9 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <h2>Prices</h2>
+            <h2>Ціни</h2>
             <select className="w-full" value={price} onChange={priceHandler}>
-              <option value="all">All</option>
+              <option value="all">Всі</option>
               {prices &&
                 prices.map((price) => (
                   <option key={price.value} value={price.value}>
@@ -146,13 +146,13 @@ export default function Search(props) {
             </select>
           </div>
           <div className="mb-3">
-            <h2>Ratings</h2>
+            <h2>Рейтинг</h2>
             <select className="w-full" value={rating} onChange={ratingHandler}>
-              <option value="all">All</option>
+              <option value="all">Всі</option>
               {ratings &&
                 ratings.map((rating) => (
                   <option key={rating} value={rating}>
-                    {rating} star{rating > 1 && 's'} & up
+                    {rating} зірки і вище
                   </option>
                 ))}
             </select>
@@ -161,12 +161,12 @@ export default function Search(props) {
         <div className="md:col-span-3">
           <div className="mb-2 flex items-center justify-between border-b-2 pb-2">
             <div className="flex items-center">
-              {products.length === 0 ? 'No' : countProducts} Results
+              {products.length === 0 ? 'No' : countProducts} Результат
               {query !== 'all' && query !== '' && ' : ' + query}
               {category !== 'all' && ' : ' + category}
               {brand !== 'all' && ' : ' + brand}
-              {price !== 'all' && ' : Price ' + price}
-              {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+              {price !== 'all' && ' : Ціна ' + price}
+              {rating !== 'all' && ' : Рейтинг ' + rating + ' і вище'}
               &nbsp;
               {(query !== 'all' && query !== '') ||
               category !== 'all' ||
@@ -179,13 +179,13 @@ export default function Search(props) {
               ) : null}
             </div>
             <div>
-              Sort by{' '}
+              Сортувати{' '}
               <select value={sort} onChange={sortHandler}>
-                <option value="featured">Featured</option>
-                <option value="lowest">Price: Low to High</option>
-                <option value="highest">Price: High to Low</option>
-                <option value="toprated">Customer Reviews</option>
-                <option value="newest">Newest Arrivals</option>
+                
+                <option value="lowest">Ціна: по зростанню</option>
+                <option value="highest">Ціна: по зменшенню</option>
+                <option value="toprated">Рейтинг</option>
+                <option value="newest">Новизна</option>
               </select>
             </div>
           </div>

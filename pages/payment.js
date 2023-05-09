@@ -1,7 +1,7 @@
 import CheckoutWizard from '@/components/CheckoutWizard';
 import Layout from '@/components/Layout';
 import { useRouter } from 'next/router';
-import React, { useContext, useEffect,  useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '@/utils/Store';
 import Cookies from 'js-cookie';
 
@@ -11,7 +11,6 @@ export default function PaymentScreen() {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const { shippingAddress, paymentMethod } = cart;
-
 
   const router = useRouter();
 
@@ -39,14 +38,13 @@ export default function PaymentScreen() {
     setSelectedPaymentMethod(paymentMethod || '');
   }, [paymentMethod, router, shippingAddress.address]);
 
-
   return (
     <Layout title="Payment Method">
       <CheckoutWizard activeStep={2} />
 
       <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
-        <h1 className="mb-4 text-xl">Payment Method</h1>
-        {['PayPal', 'Stripe', 'CashOnDelivery'].map((payment) => (
+        <h1 className="mb-4 text-xl">Вид доставки</h1>
+        {['Укрпошта', 'Нова Пошта', 'Meest Express'].map((payment) => (
           <div key={payment} className="mb-4">
             <input
               name="paymentMethod"
@@ -77,4 +75,4 @@ export default function PaymentScreen() {
   );
 }
 
- PaymentScreen.auth = true;
+PaymentScreen.auth = true;

@@ -72,7 +72,7 @@ export default function LoginScreen() {
             type="password"
             {...register('password', {
               required: 'Введіть пароль',
-              minLength: { value: 6, message: 'Пароль має більше 5 символів' },
+              minLength: { value: 6, message: 'Пароль менше 6 символів' },
             })}
             className="w-full"
             id="password"
@@ -88,7 +88,7 @@ export default function LoginScreen() {
         </div>
         <div className="mb-4 ">
           Немає акаунту? &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
+          <Link href={`/register?redirect=${redirect || '/'}`}>Реєстрація</Link>
         </div>
       </form>
     </Layout>
