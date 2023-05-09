@@ -6,7 +6,7 @@ import { Store } from '@/utils/Store';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useContext } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 
 
 export default function Home({ products }) {
