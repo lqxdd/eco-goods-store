@@ -7,8 +7,6 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useContext } from 'react';
 
-
-
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
@@ -28,6 +26,12 @@ export default function Home({ products }) {
 
   return (
     <Layout title="Home Page">
+      <p className="descr">
+        🌿 Розкрийте свою свідомість та прийміть виклик бути екологічно
+        відповідальними. У нашому магазині ви знайдете величезний вибір
+        екологічно чистих продуктів, які допоможуть вам створити здорове та
+        екологічно збалансоване життя 🌿
+      </p>
       <h1 className="h2 my-4">Товари</h1>
       <div></div>
 

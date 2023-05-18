@@ -67,7 +67,7 @@ export default function Layout({ title, children }) {
                 placeholder="Пошук товарів"
               />
               <button
-                className="rounded rounded-tl-none rounded-bl-none bg-amber-300 p-1 text-sm dark:text-black"
+                className="rounded rounded-tl-none rounded-bl-none bg-rose-400 p-1 text-sm dark:text-black"
                 type="submit"
                 id="button-addon2"
               >
@@ -130,8 +130,10 @@ export default function Layout({ title, children }) {
         </header>
 
         <main className="container m-auto mt-4 px-4">{children}</main>
-        <footer className="flex h-10 justify-center items-center shadow-inner">
+          <footer className="flex h-12 px-4 justify-between items-center shadow-inner">
+         <a href="/about">Про нас</a>
           <p>Copyright © 2023 EcoSense</p>
+          <a href="/contacts">Контакти</a>
         </footer>
       </div>
     </>
