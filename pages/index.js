@@ -1,11 +1,12 @@
 import Layout from '@/components/Layout';
 import ProductItem from '@/components/ProductItem';
-import Product from '@/models/Product';
-import db from '@/utils/db';
-import { Store } from '@/utils/Store';
+import Product from '@/schemas/Product';
+import db from '@/services/database';
+import { Store } from '@/services/Save';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useContext } from 'react';
+import { useEffect } from 'react';
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
@@ -25,7 +26,7 @@ export default function Home({ products }) {
   };
 
   return (
-    <Layout title="Home Page">
+    <Layout title="Головна">
       <p className="descr">
         🌿 Розкрийте свою свідомість та прийміть виклик бути екологічно
         відповідальними. У нашому магазині ви знайдете величезний вибір

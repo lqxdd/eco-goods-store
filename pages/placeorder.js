@@ -5,10 +5,10 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import CheckoutWizard from '@/components/CheckoutWizard';
+import CheckoutWizard from '@/components/Checkout';
 import Layout from '@/components/Layout';
-import { getError } from '@/utils/error';
-import { Store } from '@/utils/Store';
+import { getError } from '@/services/error';
+import { Store } from '@/services/Save';
 
 export default function PlaceOrderScreen() {
   const { state, dispatch } = useContext(Store);
@@ -21,8 +21,8 @@ export default function PlaceOrderScreen() {
     boxItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
 
-  const shippingPrice = itemsPrice > 1000 ? 0 : 50;
-  const addPrice = round2(itemsPrice * 0.05);
+  const shippingPrice = 100;
+  const addPrice = 0;
   const totalPrice = round2(itemsPrice + shippingPrice + addPrice);
 
   const router = useRouter();
@@ -143,12 +143,7 @@ export default function PlaceOrderScreen() {
                     <div>{itemsPrice}</div>
                   </div>
                 </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Додатково</div>
-                    <div>{addPrice}</div>
-                  </div>
-                </li>
+                
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Доставка</div>

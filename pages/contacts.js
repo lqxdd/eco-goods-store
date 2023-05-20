@@ -43,10 +43,14 @@ export default function About() {
           <SocialIcon url="https://telegram.com/" />
         </div>
 
-        <div className="mb-2">
+        <div className="mb-2 mb-20">
           <SocialIcon url="https://facebook.com/" />
         </div>
+
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd6phuQSZMv1_lWv-9Qzc50VuTv55WLEgIABL2Ke2pu4P67Zg/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
       </div>
+
+      
     </Layout>
   );
 }

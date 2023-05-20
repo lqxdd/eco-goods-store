@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import Layout from '../components/Layout';
-import { Store } from '../utils/Store';
+import { Store } from '../services/Save';
 import { XCircleIcon } from '@heroicons/react/outline';
 import ProductItem from '../components/ProductItem';
-import Product from '../models/Product';
-import db from '../utils/db';
+import Product from '../schemas/Product';
+import db from '../services/database';
 
 const PAGE_SIZE = 2;
 
@@ -181,7 +181,6 @@ export default function Search(props) {
             <div>
               Сортувати{' '}
               <select value={sort} onChange={sortHandler}>
-                
                 <option value="lowest">Ціна: по зростанню</option>
                 <option value="highest">Ціна: по зменшенню</option>
                 <option value="toprated">Рейтинг</option>

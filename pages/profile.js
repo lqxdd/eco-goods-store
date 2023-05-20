@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { getError } from '@/utils/error';
+import { getError } from '@/services/error';
 import axios from 'axios';
 import Layout from '@/components/Layout';
 

@@ -1,8 +1,8 @@
-import CheckoutWizard from '@/components/CheckoutWizard';
+import CheckoutWizard from '@/components/Checkout';
 import Layout from '@/components/Layout';
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Store } from '@/utils/Store';
+import { Store } from '@/services/Save';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 
@@ -81,7 +81,10 @@ export default function ShippingScreen() {
             id="address"
             {...register('address', {
               required: 'Введіть адресу',
-              minLength: { value: 3, message: 'Адреса має містити більше 2 символів' },
+              minLength: {
+                value: 3,
+                message: 'Адреса має містити більше 2 символів',
+              },
             })}
           />
           {errors.address && (
@@ -135,4 +138,4 @@ export default function ShippingScreen() {
   );
 }
 
- ShippingScreen.auth = true;
+ShippingScreen.auth = true;

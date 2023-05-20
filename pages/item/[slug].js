@@ -1,12 +1,11 @@
 import Layout from '@/components/Layout';
 import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
-import data from '@/utils/data';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Store } from '@/utils/Store';
-import Product from '@/models/Product';
-import db from '@/utils/db';
+import { Store } from '@/services/Save';
+import Product from '@/schemas/Product';
+import db from '@/services/database';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 

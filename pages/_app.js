@@ -1,14 +1,16 @@
-import '@/styles/globals.css';
-import { StoreProvider } from '../utils/Store';
+import '@/css/globals.css';
+import { StoreProvider } from '../services/Save';
 import { SessionProvider, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
-
-export default function App({ Component, pageProps: { session, ...pageProps }  }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
     <SessionProvider session={session}>
       <StoreProvider>
-      {Component.auth ? (
+        {Component.auth ? (
           <Auth>
             <Component {...pageProps} />
           </Auth>

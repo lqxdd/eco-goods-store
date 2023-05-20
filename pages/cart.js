@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Store } from '@/utils/Store';
+import { Store } from '@/services/Save';
 import Layout from '@/components/Layout';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -96,7 +96,7 @@ function CartScreen() {
             <ul>
               <li>
                 <div className="pb-3 text-xl">
-                  Сума ({cartItems.reduce((a, c) => a + c.quantity, 0)}) : 
+                  Сума ({cartItems.reduce((a, c) => a + c.quantity, 0)}) :
                   {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)} грн
                 </div>
               </li>
