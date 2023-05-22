@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { getError } from '@/services/error';
 import axios from 'axios';
-import Layout from '@/components/Layout';
+import Format from '@/components/Format';
 
-export default function ProfileScreen() {
+export default function ProfilePage() {
   const { data: session } = useSession();
 
   const {
@@ -44,7 +44,7 @@ export default function ProfileScreen() {
   };
 
   return (
-    <Layout title="Profile">
+    <Format title="Profile">
       <form
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
@@ -129,8 +129,8 @@ export default function ProfileScreen() {
           <button className="primary-button">Оновити</button>
         </div>
       </form>
-    </Layout>
+    </Format>
   );
 }
 
-ProfileScreen.auth = true;
+ProfilePage.auth = true;

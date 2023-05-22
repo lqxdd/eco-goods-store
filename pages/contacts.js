@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import Layout from '../components/Layout';
+import Format from '../components/Format';
 import ReactDOM from 'react-dom';
 import { SocialIcon } from 'react-social-icons';
 
 export default function About() {
   return (
-    <Layout title="About">
+    <Format title="About">
       <h1 className="text-xl text-center ">Зв'язатися з нами</h1>
       <div className="flex flex-col justify-center p-5 items-center">
         <p className="mb-4">support@ecosense.com</p>
@@ -47,10 +47,17 @@ export default function About() {
           <SocialIcon url="https://facebook.com/" />
         </div>
 
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd6phuQSZMv1_lWv-9Qzc50VuTv55WLEgIABL2Ke2pu4P67Zg/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSd6phuQSZMv1_lWv-9Qzc50VuTv55WLEgIABL2Ke2pu4P67Zg/viewform?embedded=true"
+          width="640"
+          height="500"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+        >
+          Loading…
+        </iframe>
       </div>
-
-      
-    </Layout>
+    </Format>
   );
 }

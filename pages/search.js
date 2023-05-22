@@ -2,10 +2,10 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
-import Layout from '../components/Layout';
+import Format from '../components/Format';
 import { Store } from '../services/Save';
 import { XCircleIcon } from '@heroicons/react/outline';
-import ProductItem from '../components/ProductItem';
+import Item from '../components/Item';
 import Product from '../schemas/Product';
 import db from '../services/database';
 
@@ -99,10 +99,10 @@ export default function Search(props) {
       return;
     }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
-    router.push('/cart');
+    router.push('/korzina');
   };
   return (
-    <Layout title="search">
+    <Format title="search">
       <div className="grid md:grid-cols-4 md:gap-5">
         <div>
           <div className="my-3">
@@ -191,7 +191,7 @@ export default function Search(props) {
           <div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3  ">
               {products.map((product) => (
-                <ProductItem
+                <Item
                   key={product._id}
                   product={product}
                   addToCartHandler={addToCartHandler}
@@ -216,7 +216,7 @@ export default function Search(props) {
           </div>
         </div>
       </div>
-    </Layout>
+    </Format>
   );
 }
 

@@ -1,4 +1,4 @@
-import '@/css/globals.css';
+import '@/css/main.css';
 import { StoreProvider } from '../services/Save';
 import { SessionProvider, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CheckoutWizard({ activeStep = 0 }) {
+export default function Confirm({ activeStep = 0 }) {
   return (
     <div className="mb-5 flex flex-wrap">
       {['Авторизація', 'Адреса доставки', 'Вид доставки', 'Замовлення'].map(

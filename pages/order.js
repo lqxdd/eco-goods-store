@@ -5,12 +5,12 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import CheckoutWizard from '@/components/Checkout';
-import Layout from '@/components/Layout';
+import Confirm from '@/components/Confirm';
+import Format from '@/components/Format';
 import { getError } from '@/services/error';
 import { Store } from '@/services/Save';
 
-export default function PlaceOrderScreen() {
+export default function MakeOrder() {
   const { state, dispatch } = useContext(Store);
   const { cart: box } = state;
   const { cartItems: boxItems, shippingAddress, paymentMethod } = box;
@@ -63,8 +63,8 @@ export default function PlaceOrderScreen() {
   };
 
   return (
-    <Layout title="Place Order">
-      <CheckoutWizard activeStep={3} />
+    <Format title="Place Order">
+      <Confirm activeStep={3} />
       <h1 className="mb-4 text-xl">Зробити замовлення</h1>
       {boxItems.length === 0 ? (
         <div>
@@ -81,7 +81,7 @@ export default function PlaceOrderScreen() {
                 {shippingAddress.country}
               </div>
               <div>
-                <Link href="/shipping">Змінити</Link>
+                <Link href="/dostavka">Змінити</Link>
               </div>
             </div>
             <div className="card  p-5">
@@ -129,7 +129,7 @@ export default function PlaceOrderScreen() {
                 </tbody>
               </table>
               <div>
-                <Link href="/cart">Змінити</Link>
+                <Link href="/korzina">Змінити</Link>
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@ export default function PlaceOrderScreen() {
                     <div>{itemsPrice}</div>
                   </div>
                 </li>
-                
+
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Доставка</div>
@@ -171,8 +171,8 @@ export default function PlaceOrderScreen() {
           </div>
         </div>
       )}
-    </Layout>
+    </Format>
   );
 }
 
-PlaceOrderScreen.auth = true;
+MakeOrder.auth = true;

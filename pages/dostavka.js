@@ -1,12 +1,12 @@
-import CheckoutWizard from '@/components/Checkout';
-import Layout from '@/components/Layout';
+import Confirm from '@/components/Confirm';
+import Format from '@/components/Format';
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Store } from '@/services/Save';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 
-export default function ShippingScreen() {
+export default function DostavkaPage() {
   const {
     handleSubmit,
     register,
@@ -50,8 +50,8 @@ export default function ShippingScreen() {
   };
 
   return (
-    <Layout title="Shipping Address">
-      <CheckoutWizard activeStep={1} />
+    <Format title="Shipping Address">
+      <Confirm activeStep={1} />
 
       <form
         className="mx-auto max-w-screen-md"
@@ -134,8 +134,8 @@ export default function ShippingScreen() {
           <button className="primary-button">Далі</button>
         </div>
       </form>
-    </Layout>
+    </Format>
   );
 }
 
-ShippingScreen.auth = true;
+DostavkaPage.auth = true;

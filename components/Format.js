@@ -6,12 +6,12 @@ import { ToastContainer } from 'react-toastify';
 import { signOut, useSession } from 'next-auth/react';
 import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from '@headlessui/react';
-import DropdownLink from './DropdownLink';
+import Dropdown from './Dropdown';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { SearchIcon } from '@heroicons/react/outline';
 
-export default function Layout({ title, children }) {
+export default function Format({ title, children }) {
   const { status, data: session } = useSession();
 
   const { state, dispatch } = useContext(Store);
@@ -67,7 +67,6 @@ export default function Layout({ title, children }) {
           content="Ласкаво просимо в магазин екотоварів EcoSense!"
         />
 
-
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -110,7 +109,7 @@ export default function Layout({ title, children }) {
             </a>
 
             <div>
-              <Link href="/cart">
+              <Link href="/korzina">
                 <a className="p-2 text-lg font-bold">
                   Кошик
                   {boxItemsCount > 0 && (
@@ -130,11 +129,11 @@ export default function Layout({ title, children }) {
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">
                     <Menu.Item>
-                      <DropdownLink className="dropdown-link" href="/profile">
+                      <Link className="dropdown-link" href="/account">
                         Профіль
-                      </DropdownLink>
+                      </Link>
                     </Menu.Item>
-                    
+
                     <Menu.Item>
                       <a
                         className="dropdown-link"

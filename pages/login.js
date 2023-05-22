@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout';
+import Format from '@/components/Format';
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
@@ -7,7 +7,7 @@ import { getError } from '@/services/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 
-export default function LoginScreen() {
+export default function LoginPage() {
   const { data: session } = useSession();
 
   const router = useRouter();
@@ -40,7 +40,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <Layout title="Login">
+    <Format title="Login">
       <form
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
@@ -91,6 +91,6 @@ export default function LoginScreen() {
           <Link href={`/register?redirect=${redirect || '/'}`}>Реєстрація</Link>
         </div>
       </form>
-    </Layout>
+    </Format>
   );
 }

@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import Layout from '../components/Layout';
+import Format from '../components/Format';
 
 export default function About() {
   return (
-    <Layout title="About">
+    <Format title="About">
       <h1 className="text-xl text-center">Про нас</h1>
       <div className="flex flex-col justify-center p-5">
         <p className="mb-2">
@@ -27,10 +27,11 @@ export default function About() {
         </p>
 
         <p className="mb-10">
-        Дізнайтеся про революцію у світі споживання - запрошуємо вас до нашого магазину екотоварів! 
+          Дізнайтеся про революцію у світі споживання - запрошуємо вас до нашого
+          магазину екотоварів!
         </p>
         <img src="/images/about.jpg" alt="" />
       </div>
-    </Layout>
+    </Format>
   );
 }

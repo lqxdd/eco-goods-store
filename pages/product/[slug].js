@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout';
+import Format from '@/components/Format';
 import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -15,7 +15,7 @@ export default function ProductScreen(props) {
   const router = useRouter();
 
   if (!product) {
-    return <Layout title="Product Not Found">Товар не знайдено</Layout>;
+    return <Format title="Product Not Found">Товар не знайдено</Format>;
   }
 
   const addToCartHandler = async () => {
@@ -28,11 +28,11 @@ export default function ProductScreen(props) {
     }
 
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
-    router.push('/cart');
+    router.push('/korzina');
   };
 
   return (
-    <Layout title={product.name}>
+    <Format title={product.name}>
       <div className="py-2">
         <Link href="/">Назад до товарів</Link>
       </div>
@@ -85,7 +85,7 @@ export default function ProductScreen(props) {
           </div>
         </div>
       </div>
-    </Layout>
+    </Format>
   );
 }
 

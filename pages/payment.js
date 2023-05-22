@@ -1,11 +1,11 @@
-import CheckoutWizard from '@/components/Checkout';
-import Layout from '@/components/Layout';
+import Confirm from '@/components/Confirm';
+import Format from '@/components/Format';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '@/services/Save';
 import Cookies from 'js-cookie';
 
-export default function PaymentScreen() {
+export default function PaymentPage() {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
 
   const { state, dispatch } = useContext(Store);
@@ -28,19 +28,19 @@ export default function PaymentScreen() {
       })
     );
 
-    router.push('/placeorder');
+    router.push('/order');
   };
 
   useEffect(() => {
     if (!shippingAddress.address) {
-      return router.push('/shipping');
+      return router.push('/dostavka');
     }
     setSelectedPaymentMethod(paymentMethod || '');
   }, [paymentMethod, router, shippingAddress.address]);
 
   return (
-    <Layout title="Payment Method">
-      <CheckoutWizard activeStep={2} />
+    <Format title="Payment Method">
+      <Confirm activeStep={2} />
 
       <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
         <h1 className="mb-4 text-xl">Вид доставки</h1>
@@ -62,7 +62,7 @@ export default function PaymentScreen() {
         ))}
         <div className="mb-4 flex justify-between">
           <button
-            onClick={() => router.push('/shipping')}
+            onClick={() => router.push('/dostavka')}
             type="button"
             className="default-button"
           >
@@ -71,8 +71,8 @@ export default function PaymentScreen() {
           <button className="primary-button">Далі</button>
         </div>
       </form>
-    </Layout>
+    </Format>
   );
 }
 
-PaymentScreen.auth = true;
+PaymentPage.auth = true;

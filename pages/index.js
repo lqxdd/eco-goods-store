@@ -1,5 +1,5 @@
-import Layout from '@/components/Layout';
-import ProductItem from '@/components/ProductItem';
+import Format from '@/components/Format';
+import Item from '@/components/Item';
 import Product from '@/schemas/Product';
 import db from '@/services/database';
 import { Store } from '@/services/Save';
@@ -26,7 +26,7 @@ export default function Home({ products }) {
   };
 
   return (
-    <Layout title="Головна">
+    <Format title="Головна">
       <p className="descr">
         🌿 Розкрийте свою свідомість та прийміть виклик бути екологічно
         відповідальними. У нашому магазині ви знайдете величезний вибір
@@ -38,14 +38,14 @@ export default function Home({ products }) {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
-          <ProductItem
+          <Item
             product={product}
             key={product.slug}
             addToCartHandler={addToCartHandler}
-          ></ProductItem>
+          ></Item>
         ))}
       </div>
-    </Layout>
+    </Format>
   );
 }
 

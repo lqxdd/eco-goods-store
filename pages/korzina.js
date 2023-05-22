@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Store } from '@/services/Save';
-import Layout from '@/components/Layout';
+import Format from '@/components/Format';
 import Link from 'next/link';
 import Image from 'next/image';
 import { XCircleIcon } from '@heroicons/react/outline';
@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-function CartScreen() {
+function KorzinaPage() {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {
@@ -31,7 +31,7 @@ function CartScreen() {
   };
 
   return (
-    <Layout title="Shopping Cart">
+    <Format title="Shopping Cart">
       <h1 className="mb-4 text-xl">Кошик</h1>
 
       {cartItems.length === 0 ? (
@@ -102,7 +102,7 @@ function CartScreen() {
               </li>
               <li>
                 <button
-                  onClick={() => router.push('login?redirect=/shipping')}
+                  onClick={() => router.push('login?redirect=/dostavka')}
                   className="primary-button w-full"
                 >
                   Підтвердження
@@ -112,8 +112,8 @@ function CartScreen() {
           </div>
         </div>
       )}
-    </Layout>
+    </Format>
   );
 }
 
-export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });
+export default dynamic(() => Promise.resolve(KorzinaPage), { ssr: false });
