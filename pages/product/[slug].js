@@ -37,7 +37,7 @@ export default function ProductScreen(props) {
         <Link href="/">Назад до товарів</Link>
       </div>
 
-      <div className="grid md:grid-cols-4 md:gap-3">
+      <div className="grid md:grid-cols-4 md:gap-6">
         <div className="md:col-span-2">
           <Image
             src={product.image}
@@ -60,26 +60,28 @@ export default function ProductScreen(props) {
             </li>
             <li>Опис: {product.description}</li>
           </ul>
-        </div>
 
-        <div>
-          <div className="card p-5">
-            <div className="mb-2 flex justify-between">
-              <div>Ціна</div>
-              <div>{product.price} грн</div>
-            </div>
-            <div className="mb-2 flex justify-between">
-              <div>Статус</div>
-              <div>
-                {product.countInStock > 0 ? 'В наявності' : 'Немає в наявності'}
+          <div>
+            <div className="card p-5 mt-10">
+              <div className="mb-2 flex justify-between">
+                <div>Ціна</div>
+                <div>{product.price} грн</div>
               </div>
+              <div className="mb-2 flex justify-between">
+                <div>Статус</div>
+                <div>
+                  {product.countInStock > 0
+                    ? 'В наявності'
+                    : 'Немає в наявності'}
+                </div>
+              </div>
+              <button
+                className="primary-button w-full"
+                onClick={addToCartHandler}
+              >
+                Додати в кошик
+              </button>
             </div>
-            <button
-              className="primary-button w-full"
-              onClick={addToCartHandler}
-            >
-              Додати в кошик
-            </button>
           </div>
         </div>
       </div>

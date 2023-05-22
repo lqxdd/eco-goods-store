@@ -21,7 +21,7 @@ export default function PlaceOrderScreen() {
     boxItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
 
-  const shippingPrice = 100;
+  const shippingPrice = 50;
   const addPrice = 0;
   const totalPrice = round2(itemsPrice + shippingPrice + addPrice);
 
@@ -159,7 +159,7 @@ export default function PlaceOrderScreen() {
                 <li>
                   <Link
                     legacyBehavior
-                    href="https://www.portmone.com.ua/r3/perekaz-za-zapitom/6CniB4h"
+                    href="https://www.portmone.com.ua/r3/perekaz-za-zapitom/6FxiwMR"
                   >
                     <a className="primary-button w-full" target="_blank">
                       Передоплата

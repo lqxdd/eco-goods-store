@@ -158,7 +158,7 @@ export default function Search(props) {
             </select>
           </div>
         </div>
-        <div className="md:col-span-3">
+        <div className="md:col-span-5">
           <div className="mb-2 flex items-center justify-between border-b-2 pb-2">
             <div className="flex items-center">
               {products.length === 0 ? 'No' : countProducts} Результат
