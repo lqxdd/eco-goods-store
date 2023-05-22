@@ -66,6 +66,8 @@ export default function Layout({ title, children }) {
           name="description"
           content="Ласкаво просимо в магазин екотоварів EcoSense!"
         />
+
+<meta name="interkassa-verification" content="e17eca3afec8ac512aac6fab6e65990a" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
