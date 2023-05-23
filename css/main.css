@@ -68,7 +68,9 @@ textarea {
 }
 
 #google_translate_element {
-  margin-left: 100px;
+  margin-left: -20px;
+  margin-right: 130px;
+  margin-top: 5px;
 
   .goog-te-combo:nth-child(2){
     display: none;
@@ -77,5 +79,40 @@ textarea {
   .skiptranslate.goog-te-gadget:nth-child(2){
     display: none;
   }
+
+  .VIpgJd-ZVi9od-l4eHX-hSRGPd{
+    display: none;
+  }
+
+  .skiptranslate.goog-te-gadget{
+    #text {
+      display: none;
+    }
+  }
+
+ 
 }
+
+.h-12 {
+  height: 4rem;
+}
+
+.trn{
+  width: 126px;
+}
+
+.searchform{
+  width: 400px;
+  margin-left: -100px;
+}
+
+.goog-te-gadget{
+  font-size: 9px;
+}
+
+
+
+
+
+
 

@@ -75,9 +75,17 @@ export default function Format({ title, children }) {
       <div className="flex min-h-screen flex-col justify-between ">
         <header className="bg-slate-200">
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
-            <Link legacyBehavior href="/">
-              <a className="text-lg font-bold">EcoSense</a>
-            </Link>
+            <div className="flex h-12 px-4 justify-between items-center shadow-inner">
+             
+
+              <div className="trn">
+                <div classname="invisible" id="google_translate_element"></div>
+              </div>
+
+              <Link legacyBehavior href="/">
+                <a className="text-lg font-bold">EcoSense</a>
+              </Link>
+            </div>
 
             <a className="text-lg font-bold" href="/about">
               Про нас
@@ -104,11 +112,16 @@ export default function Format({ title, children }) {
               </form>
             </div>
 
+           
+
             <a className="text-lg font-bold" href="/contacts">
               Контакти
             </a>
 
+            
+
             <div>
+
               <Link href="/korzina">
                 <a className="p-2 text-lg font-bold">
                   Кошик
@@ -154,13 +167,11 @@ export default function Format({ title, children }) {
           </nav>
         </header>
 
-        <div className="trn">
-          <div classname="invisible" id="google_translate_element"></div>
-        </div>
-
         <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex h-12 px-4 justify-between items-center shadow-inner">
-          <a href="/about">Про нас</a>
+          <div>
+            <a href="/about">Про нас</a>
+          </div>
           <p>Copyright © 2023 EcoSense</p>
           <a href="/contacts">Контакти</a>
         </footer>
